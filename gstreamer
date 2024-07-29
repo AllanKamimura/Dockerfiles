@@ -1,0 +1,25 @@
+# Use an official base image with Python
+FROM python:3.9-slim
+
+# Install GStreamer and dependencies
+RUN apt-get update && \
+    apt-get install -y \
+    gstreamer1.0-tools \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-bad \
+    gstreamer1.0-plugins-ugly \
+    gstreamer1.0-libav \
+    libgstreamer-plugins-base1.0-dev \
+    libgstreamer1.0-dev \
+    libcairo2 \
+    libcairo2-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set the working directory
+WORKDIR /app
+
+# Copy your Python script or application files into the container
+# COPY your_script.py /app/
+
+
