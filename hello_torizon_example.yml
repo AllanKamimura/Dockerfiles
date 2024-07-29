@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  hello-torizon-service:
+    image: alpine:3.20.0
+    volumes:
+      - /home/torizon:/home
+    command: sh -c "echo 'Hello, Torizon!' > /home/hello-torizon && cat /home/hello-torizon"

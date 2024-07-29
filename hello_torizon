@@ -1,0 +1,12 @@
+# Use the lightweight Alpine Linux image
+FROM --platform=linux/arm64 alpine:latest
+
+# Create the /torizon directory
+RUN mkdir -p /torizon 
+
+RUN adduser -D torizon
+USER torizon
+
+# Set the working directory
+WORKDIR /torizon
+
