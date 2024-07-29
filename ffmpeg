@@ -1,0 +1,24 @@
+# Use a base image with Python and Debian
+FROM debian:bookworm-slim
+
+# Install necessary packages
+RUN apt-get update && apt-get install -y \
+    openssl \
+    ca-certificates \
+    ffmpeg \
+    libdrm-tests \
+    imagemagick \
+    nano \
+    curl \
+    jq \
+    wget \
+    --no-install-recommends && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY screenshot_ffmpeg.sh /
+
+# Set the working directory
+RUN mkdir -p /images
+
+
